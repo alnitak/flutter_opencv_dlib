@@ -1,0 +1,51 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+# Libraries should not include pubspec.lock, per https://dart.dev/guides/libraries/private-files#pubspeclock.
+/pubspec.lock
+**/doc/api/
+.dart_tool/
+.packages
+build/
+
+WORK/
+BUILD_LIBS/buildDlib/*
+!BUILD_LIBS/buildDlib/buildDlib-android
+!BUILD_LIBS/buildDlib/buildDlib-android.bat
+!BUILD_LIBS/buildDlib/buildDlib-windows.bat
+!BUILD_LIBS/buildDlib/gitCloneDlib
+!BUILD_LIBS/buildDlib/gitCloneDlib.bat
+!BUILD_LIBS/buildDlib/README.md
+
+BUILD_LIBS/buildOpenCV/*
+!BUILD_LIBS/buildOpenCV/buildOpenCV.bat
+!BUILD_LIBS/buildOpenCV/copyLibs-android
+!BUILD_LIBS/buildOpenCV/gitCloneOpenCV.bat
+!BUILD_LIBS/buildOpenCV/README.md
+
+
+android/src/main/dlib
+android/src/main/opencv
+windows/dlib
+windows/opencv

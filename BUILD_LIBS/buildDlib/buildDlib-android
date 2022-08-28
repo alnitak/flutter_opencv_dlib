@@ -1,0 +1,72 @@
+#!/bin/bash
+
+export CURR_PATH=$PWD
+export ANDROID_PATH=$PWD/../../android
+export DLIB_PATH=$PWD"/dlib/dlib/"
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_STRIP=$ANDROID_HOME/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-strip
+export ANDROID_NDK=$ANDROID_HOME/ndk-bundle
+export CMAKE_HOME=$ANDROID_HOME/cmake/3.10.2.4988404/bin
+export CMAKE=$CMAKE_HOME/cmake
+export NINJA=$CMAKE_HOME/ninja
+export CMAKE_TOOLCHAIN_FILE=$ANDROID_NDK/build/cmake/android.toolchain.cmake
+export CMAKE_CXX_FLAGS="-std=c++11 -fexceptions -frtti -stdlib=libc++ -v -O -Wl --strip-debug"
+
+mkdir build-dlib-android
+declare -a arr=("armeabi-v7a" "arm64-v8a" "x86_64" "x86")
+
+cd build-dlib-android
+for abi in "${arr[@]}"
+do
+	mkdir build-$abi
+	cd build-$abi
+	$CMAKE -GNinja \
+		-DCMAKE_BUILD_TYPE=MinSizeRel \
+		-DBUILD_TESTING=OFF \
+		-DBUILD_SHARED_LIBS=ON \
+		-DCMAKE_TOOLCHAIN_FILE=$CMAKE_TOOLCHAIN_FILE \
+		-DCMAKE_INSTALL_PREFIX=$CURR_PATH/libs-android/$abi \
+		-DANDROID_NDK=$ANDROID_NDK \
+		-DANDROID_TOOLCHAIN=clang \
+		-DCMAKE_ANDROID_ARCH_ABI=$abi \
+		-DANDROID_ABI=$abi \
+		-DANDROID_NATIVE_API_LEVEL=27 \
+		-DANDROID_STL=c++_shared \
+		-DANDROID_CPP_FEATURES=rtti exceptions \
+		-DCMAKE_MAKE_PROGRAM=$NINJA \
+		\
+		-DDLIB_WEBP_SUPPORT=FALSE \
+		-DDLIB_LINK_WITH_SQLITE3=OFF \
+		-DCMAKE_CXX_FLAGS="-std=c++11 -frtti -fexceptions" \
+		-DCMAKE_C_FLAGS=-O3 \
+		\
+		-DDLIB_PNG_SUPPORT=OFF \
+		-DDLIB_GIF_SUPPORT_STR=OFF \
+		-DDLIB_JPEG_SUPPORT=ON \
+		-DDLIB_NO_GUI_SUPPORT=TRUE \
+		-DDLIB_USE_BLAS=FALSE \
+		-DDLIB_USE_LAPACK=FALSE \
+		$DLIB_PATH
+
+	$NINJA
+	$NINJA install
+
+	# striping and copy libs to android dir
+	$ANDROID_STRIP --strip-unneeded $CURR_PATH/libs-android/$abi/lib/libdlib.so
+	mkdir -p $ANDROID_PATH/src/main/dlib/$abi/
+	cp $CURR_PATH/libs-android/$abi/lib/libdlib.so $ANDROID_PATH/src/main/dlib/$abi/libdlib.so
+
+	cd ..
+done
+
+# copy include dir
+cp -r $CURR_PATH/libs-android/arm64-v8a/include $ANDROID_PATH/src/main/dlib/include
+
+printf "\n\n\nif (all is gone well)\n"
+printf "{\n"
+printf "    dlib has been installed in android/src/main/dlib\n"
+printf "    &\n"
+printf "    you can delete './build-dlib-android' dir!\n"
+printf "    you can delete './dlib' dir!\n"
+printf "    you can delete './libs-android' dir!\n"printf "}\n"

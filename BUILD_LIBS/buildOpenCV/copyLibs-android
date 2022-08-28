@@ -1,0 +1,2 @@
+cp -r ./OpenCV-android-sdk/sdk/native/libs/ ../../android/src/main/opencv
+cp -r ./OpenCV-android-sdk/sdk/native/jni/include ../../android/src/main/opencv

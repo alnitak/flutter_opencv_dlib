@@ -1,0 +1,63 @@
+group 'com.bavagnoli.flutter_opencv_dlib'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.1.2'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 31
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+
+        packagingOptions {
+            doNotStrip '**.so'
+        }
+
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++11 -fexceptions -frtti -stdlib=libc++ -v -g"
+
+                arguments '-DBUILD_TESTING=OFF',
+                        '-DANDROID_PLATFORM=android-21',
+                        '-DANDROID_TOOLCHAIN=clang',
+                        '-DCMAKE_VERBOSE_MAKEFILE=ON',
+                        '-DANDROID_STL=c++_shared'
+                version "3.10.2"
+            }
+        }
+
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+        }
+
+    }
+}
