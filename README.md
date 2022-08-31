@@ -17,7 +17,7 @@ The camera plugin seems to have a different behavior running on the emulator or 
 viewfinder is rotated. For this purpose, in the example/lib/main.dart there is the [isRunninOnEmulator] const used to define the starting viewfinder rotation.
 
 The the camera on Linux, uses frames provided by [cv::VideoCapture] OpenCV lib, it stores them into a OpenGL texture and send them back to a Texture() Flutter widget.
-This should work on Windows and Mac, but it's not implemented. So the camera is not yet available these OSes, but the plugin should work for example providing photos/images to it.
+This should work on Windows and Mac, but it's not implemented. So the camera is not yet available on these OSes, but the plugin should work for example providing photos/images to it.
 
 The c/c++ shared source code (for all platforms) is stored into ios/Classes/cpp for further iOS release.
 
