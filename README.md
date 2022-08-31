@@ -4,6 +4,16 @@ Realtime face detection and face recognition using OpenCV and dlib
 
 ## Getting Started (WIP)
 
+
+|[![Linux video](https://img.youtube.com/vi/lSMhvdDgARk/mqdefault.jpg)](https://youtu.be/lSMhvdDgARk)|
+|:--:|
+| Linux video|
+
+|[![Android video](https://img.youtube.com/vi/bsY_zsEMs7s/mqdefault.jpg)](https://youtu.be/bsY_zsEMs7s)|
+|:--:|
+| Android video|
+
+
 OpenCV and dlib libraries are not provided, so they must be (maybe) compiled and copied into the OS Flutter dir.
 This plugin is almost tested only on Linux and Android, any help is greatly appreciated!
 
