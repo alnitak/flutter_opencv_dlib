@@ -45,7 +45,3 @@ BUILD_LIBS/buildOpenCV/*
 !BUILD_LIBS/buildOpenCV/README.md
 
 
-android/src/main/dlib
-android/src/main/opencv
-windows/dlib
-windows/opencv
