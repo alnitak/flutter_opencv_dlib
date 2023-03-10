@@ -45,6 +45,7 @@ G_DEFINE_TYPE(FlutterOpencvDlibPlugin, flutter_opencv_dlib_plugin, g_object_get_
 static void flutter_opencv_dlib_plugin_handle_method_call(
     FlutterOpencvDlibPlugin* self,
     FlMethodCall* method_call) {
+  std::cout << "***fl_view: " << self->fl_view << " " << self << std::endl;
   g_autoptr(FlMethodResponse) response = nullptr;
 
   const gchar* method = fl_method_call_get_name(method_call);
