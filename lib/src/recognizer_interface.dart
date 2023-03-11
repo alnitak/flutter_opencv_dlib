@@ -120,7 +120,7 @@ class RecognizerInterface {
   Future<bool> initRecognizer() async {
     // ! rootBundle doesn't work on isolates
     var sp = (await rootBundle.load(
-        'packages/flutter_opencv_dlib/assets/shape_predictor_5_face_landmarks.dat'));
+        'packages/flutter_opencv_dlib/assets/shape_predictor_5_face_landmarks-B.dat'));
     var fr = (await rootBundle.load(
         'packages/flutter_opencv_dlib/assets/dlib_face_recognition_resnet_model_v1.dat'));
     bool ret = await compute(loadRecognizerIsolate, {'sp': sp, 'fr': fr});
