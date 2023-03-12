@@ -21,7 +21,8 @@ This should work on Windows and Mac, but it's not implemented. So the camera is 
 
 The c/c++ shared source code (for all platforms) is stored into ios/Classes/cpp for further iOS release.
 
-In the assets dir are stored some models used here. They are available [here](https://github.com/davisking/dlib-models)
+In the ```assets``` dir are stored some models used here. They are available [here](https://github.com/davisking/dlib-models) and are
+licensed under *[Creative Commons Zero v1.0 Universal](https://github.com/davisking/dlib-models/blob/master/LICENSE)*
 
 For Linux within the example dir you should run lib/main_desktop.dart: 
 ```flutter run --release -t ./lib/main_desktop.dart```
