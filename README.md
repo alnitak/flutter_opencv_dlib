@@ -8,8 +8,6 @@ https://user-images.githubusercontent.com/192827/224568828-988137d8-8f80-45a6-87
 
 https://user-images.githubusercontent.com/192827/224568831-0734ca77-c203-4013-bc35-9b1f04d31010.mp4
 
-
-OpenCV and dlib libraries are not provided, so they must be (maybe) compiled and copied into the OS Flutter dir.
 This plugin is almost tested only on Linux and Android, any help is greatly appreciated!
 
 On Android (not tested on iOS) the [camera](https://pub.dev/packages/camera) plugin is used to grab frames and send them to this plugin.
