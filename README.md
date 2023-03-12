@@ -4,6 +4,9 @@ Realtime face detection and face recognition using OpenCV and dlib
 
 ## Getting Started (WIP)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lSMhvdDgARk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
 |[![Linux video](https://img.youtube.com/vi/lSMhvdDgARk/mqdefault.jpg)](https://youtu.be/lSMhvdDgARk)|[![Android video](https://img.youtube.com/vi/bsY_zsEMs7s/mqdefault.jpg)](https://youtu.be/bsY_zsEMs7s)|
 |:--:|:--:|
 | Linux test| Android test|
