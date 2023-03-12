@@ -37,6 +37,9 @@ Running in debug mode the performances are very poor. In profile or release mode
 install OpenCV and dlib with the package manager of your linux distribution.
 
 ### Android
+Opencv v4.6.0 and dlib v19.24 are precompiled and stored into ```android/src/main```. 
+If you want to update them, you can use the below instructions:
+
 #### OpenCV
 - download latest opencv-[x.y.z]-android-sdk.zip from [https://github.com/opencv/opencv/releases](https://github.com/opencv/opencv/releases)
 - extract into BUILD_LIBS/buildOpenCV
